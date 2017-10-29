@@ -13,5 +13,8 @@
     "good-console": "^6.4.0",
     "good-squeeze": "^5.0.2",
     "hapi": "^16.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }
