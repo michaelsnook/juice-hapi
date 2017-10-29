@@ -1,0 +1,14 @@
+{
+  "name": "juice-hapi",
+  "version": "1.0.0",
+  "description": "Server for the juice-ordering mobile app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@michaelsnook",
+  "license": "MIT",
+  "dependencies": {
+    "hapi": "^16.6.2"
+  }
+}
