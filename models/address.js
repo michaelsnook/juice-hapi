@@ -1,4 +1,5 @@
 'use strict';
+
 /*
   node_modules/.bin/sequelize model:generate --name Address \
     --attributes id:uuid,name:string,type:string,address:text,postcode:string,directions:text
