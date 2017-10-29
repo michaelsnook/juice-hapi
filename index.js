@@ -122,7 +122,7 @@ server.register([
     options: [
       {
         name: 'juice_hapi', // identifier
-        //models: ['./server/models/**/*.js'],  // paths/globs to model files
+        models: ['./server/models/**/*.js'],  // paths/globs to model files
         sequelize: new Sequelize('postgres://localhost:5432/juice_hapi', {}),
         //sync: true, // sync models - default false
         forceSync: false//, // force sync (drops tables) - default false
