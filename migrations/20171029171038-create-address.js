@@ -41,7 +41,7 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValaue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
       },
-      user_id: {
+      UserId: {
         type: Sequelize.UUID,
         references: {
           model: 'Users',

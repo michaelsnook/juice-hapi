@@ -4,6 +4,7 @@ const replPlugin = require('hapi-repl');
 const Hapi = require('hapi');
 const Good = require('good');
 const Sequelize = require('sequelize');
+const models = require('./models');
 
 const server = new Hapi.Server();
 server.connection({ port: 3000, host: 'localhost' });
@@ -76,7 +77,8 @@ server.route({
   method: 'GET',
   path: '/account/{user_id}',
   handler: function (request, reply) {
-    reply('Hello, world!');
+    models.User.findById(request.params.user_id)
+    .then(user => reply(JSON.stringify(user)));
   }
 });
 
@@ -85,7 +87,8 @@ server.route({
   method: 'GET',
   path: '/account/{user_id}/orders',
   handler: function (request, reply) {
-    reply('Hello, world!');
+    models.Order.findAll({ where: { UserId: request.params.user_id}})
+    .then(orders => reply(JSON.stringify(orders)));
   }
 });
 
@@ -94,9 +97,12 @@ server.route({
   method: 'GET',
   path: '/account/{user_id}/all',
   handler: function (request, reply) {
-    reply('Hello, world!');
+    models.User.findById(request.params.user_id, { include: [models.Order]})
+    .then(payload => reply(JSON.stringify(payload)));
+
   }
 });
+
 
 server.register([
   { register: replPlugin },
