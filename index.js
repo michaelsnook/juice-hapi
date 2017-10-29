@@ -2,6 +2,7 @@
 
 const Hapi = require('hapi');
 const Good = require('good');
+const Sequelize = require('sequelize');
 
 const server = new Hapi.Server();
 server.connection({ port: 3000, host: 'localhost' });
@@ -96,23 +97,40 @@ server.route({
   }
 });
 
-server.register({
-  register: Good,
-  options: {
-    reporters: {
-      console: [{
-        module: 'good-squeeze',
-        name: 'Squeeze',
-        args: [{
-          response: '*',
-          log: '*'
-        }]
-      }, {
-        module: 'good-console'
-      }, 'stdout']
+server.register([
+  {
+    register: Good,
+    options: {
+      reporters: {
+        console: [{
+          module: 'good-squeeze',
+          name: 'Squeeze',
+          args: [{
+            response: '*',
+            log: '*'
+          }]
+        }, {
+          module: 'good-console'
+        }, 'stdout']
+      }
     }
+  },
+  {
+    register: require('hapi-sequelize'),
+    options: [
+      {
+        name: 'juice_hapi', // identifier
+        //models: ['./server/models/**/*.js'],  // paths/globs to model files
+        sequelize: new Sequelize('postgres://localhost:5432/juice_hapi', {}),
+        //sync: true, // sync models - default false
+        forceSync: false//, // force sync (drops tables) - default false
+        //onConnect: function (database) { // Optional
+        //  console.log('connected via sequelize');// migrations, seeders, etc.
+        //}
+      }
+    ]
   }
-}, (err) => {
+], (err) => {
   if (err) {
     throw err; // something bad happened loading the plugin
   }
