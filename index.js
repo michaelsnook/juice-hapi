@@ -1,5 +1,6 @@
 'use strict';
 
+const replPlugin = require('hapi-repl');
 const Hapi = require('hapi');
 const Good = require('good');
 const Sequelize = require('sequelize');
@@ -98,6 +99,7 @@ server.route({
 });
 
 server.register([
+  { register: replPlugin },
   {
     register: Good,
     options: {
