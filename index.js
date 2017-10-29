@@ -15,6 +15,87 @@ server.route({
   }
 });
 
+// fetch today's menu options
+server.route({
+  method: 'GET',
+  path: '/menu',
+  handler: function (request, reply) {
+    reply('Hello, world!');
+  }
+});
+
+// add or update an order
+server.route({
+  method: ['PUT'],
+  path: '/order/{order_id}',
+  handler: function (request, reply) {
+    reply('Hello, world!');
+  }
+});
+
+// change delivery options
+server.route({
+  method: ['PATCH'],
+  path: '/order/{order_id}',
+  handler: function (request, reply) {
+    reply('Hello, world!');
+  }
+});
+
+// cancel an order
+server.route({
+  method: 'DELETE',
+  path: '/order/{order_id}',
+  handler: function (request, reply) {
+    reply('Hello, world!');
+  }
+});
+
+// get order details
+server.route({
+  method: 'GET',
+  path: '/order/{order_id}',
+  handler: function (request, reply) {
+    reply('Hello, world!');
+  }
+});
+
+// add or update user account
+server.route({
+  method: ['PUT', 'PATCH'],
+  path: '/account/{user_id}',
+  handler: function (request, reply) {
+    reply('Hello, world!');
+  }
+});
+
+// get user details
+server.route({
+  method: 'GET',
+  path: '/account/{user_id}',
+  handler: function (request, reply) {
+    reply('Hello, world!');
+  }
+});
+
+// get user order history
+server.route({
+  method: 'GET',
+  path: '/account/{user_id}/orders',
+  handler: function (request, reply) {
+    reply('Hello, world!');
+  }
+});
+
+// get user details & order history
+server.route({
+  method: 'GET',
+  path: '/account/{user_id}/all',
+  handler: function (request, reply) {
+    reply('Hello, world!');
+  }
+});
+
 server.register({
   register: Good,
   options: {
