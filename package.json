@@ -8,6 +8,7 @@
     "start": "nodemon"
   },
   "author": "@michaelsnook",
+  "repository": "git@github.com:michaelsnook/juice-hapi.git",
   "license": "MIT",
   "dependencies": {
     "good": "^7.3.0",
@@ -17,6 +18,7 @@
     "hapi-sequelize": "^3.0.4",
     "pg": "^6.4.2",
     "pg-hstore": "^2.3.2",
+    "pg-uuid": "^0.14.0",
     "sequelize": "^3.30.4"
   },
   "devDependencies": {

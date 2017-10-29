@@ -6,11 +6,14 @@ profiles. For ordering juice!
 
 Setup
 -----
-`npm install` will install dependencies.
+`npm install` will install dependencies. Set up a postgres database `juice_hapi`
+and run the migrations and seeds: `node_modules/.bin/sequelize db:migrate
+&& node_modules/.bin/sequelize db:seed:all`.
 
 Development
 -----------
-In dev, `nodemon` will run the server and watch for changes.
+In dev, `npm start` will run the server with nodemon to watch for changes.
+
 
 Production
 ----------
