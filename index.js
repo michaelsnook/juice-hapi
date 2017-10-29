@@ -28,7 +28,7 @@ server.route({
 
 // add or update an order
 server.route({
-  method: ['PUT'],
+  method: 'PUT',
   path: '/order/{order_id}',
   handler: function (request, reply) {
     reply('Hello, world!');
@@ -134,7 +134,7 @@ server.register([
   }
 ], (err) => {
   if (err) {
-    throw err; // something bad happened loading the plugin
+    throw err; // something bad happened loading the plugins
   }
   server.start((err) => {
     if (err) {
